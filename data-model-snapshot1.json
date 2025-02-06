@@ -1,0 +1,354 @@
+{
+  "snapshot": {
+    "created": "2025-02-05T12:07:11.114",
+    "database": {
+      "productVersion": "2024.3.2.2",
+      "shortName": "intellijPsiClass",
+      "majorVersion": "0",
+      "minorVersion": "0",
+      "user": "mohamed",
+      "productName": "IDEA Data Grid Snapshot",
+      "url": "jpab?generationContext=f2e59b82-0f95-4dbe-a9fa-49a4494b863c"
+    },
+    "metadata": {
+      "generationContext": {
+        "dbmsType": "mysql"
+      }
+    },
+    "objects": {
+      "liquibase.structure.core.Catalog": [
+        {
+          "catalog": {
+            "default": true,
+            "name": "JPA_BUDDY",
+            "snapshotId": "44b9169"
+          }
+        }
+      ]
+      ,
+      "liquibase.structure.core.Column": [
+        {
+          "column": {
+            "certainDataType": false,
+            "name": "login",
+            "nullable": false,
+            "relation": "liquibase.structure.core.Table#44b9171",
+            "snapshotId": "44b9173",
+            "type": {
+              "columnSize": "255!{java.lang.Integer}",
+              "typeName": "VARCHAR"
+            }
+          }
+        },
+        {
+          "column": {
+            "certainDataType": false,
+            "name": "login",
+            "nullable": false,
+            "relation": "liquibase.structure.core.Table#44b9178",
+            "snapshotId": "44b9177",
+            "type": {
+              "columnSize": "255!{java.lang.Integer}",
+              "typeName": "VARCHAR"
+            }
+          }
+        },
+        {
+          "column": {
+            "certainDataType": false,
+            "name": "login",
+            "nullable": false,
+            "relation": "liquibase.structure.core.Table#44b9184",
+            "snapshotId": "44b9183",
+            "type": {
+              "columnSize": "255!{java.lang.Integer}",
+              "typeName": "VARCHAR"
+            }
+          }
+        },
+        {
+          "column": {
+            "certainDataType": false,
+            "name": "password",
+            "nullable": true,
+            "relation": "liquibase.structure.core.Table#44b9171",
+            "snapshotId": "44b9174",
+            "type": {
+              "columnSize": "255!{java.lang.Integer}",
+              "typeName": "VARCHAR"
+            }
+          }
+        },
+        {
+          "column": {
+            "certainDataType": false,
+            "name": "password",
+            "nullable": true,
+            "relation": "liquibase.structure.core.Table#44b9178",
+            "snapshotId": "44b9180",
+            "type": {
+              "columnSize": "255!{java.lang.Integer}",
+              "typeName": "VARCHAR"
+            }
+          }
+        },
+        {
+          "column": {
+            "certainDataType": false,
+            "name": "password",
+            "nullable": true,
+            "relation": "liquibase.structure.core.Table#44b9184",
+            "snapshotId": "44b9186",
+            "type": {
+              "columnSize": "255!{java.lang.Integer}",
+              "typeName": "VARCHAR"
+            }
+          }
+        },
+        {
+          "column": {
+            "certainDataType": false,
+            "name": "todolist_login",
+            "nullable": true,
+            "relation": "liquibase.structure.core.Table#44b9171",
+            "snapshotId": "44b9175",
+            "type": {
+              "columnSize": "255!{java.lang.Integer}",
+              "typeName": "VARCHAR"
+            }
+          }
+        },
+        {
+          "column": {
+            "certainDataType": false,
+            "name": "utilisateur_login",
+            "nullable": true,
+            "relation": "liquibase.structure.core.Table#44b9178",
+            "snapshotId": "44b9181",
+            "type": {
+              "columnSize": "255!{java.lang.Integer}",
+              "typeName": "VARCHAR"
+            }
+          }
+        }
+      ]
+      ,
+      "liquibase.structure.core.ForeignKey": [
+        {
+          "foreignKey": {
+            "foreignKeyColumns": [
+              "liquibase.structure.core.Column#44b9175"
+            ]
+            ,
+            "foreignKeyTable": "liquibase.structure.core.Table#44b9171",
+            "name": "FK_TASKS_ON_TODOLIST_LOGIN",
+            "primaryKeyColumns": [
+              "liquibase.structure.core.Column#44b9177"
+            ]
+            ,
+            "primaryKeyTable": "liquibase.structure.core.Table#44b9178",
+            "snapshotId": "44b9176"
+          }
+        },
+        {
+          "foreignKey": {
+            "foreignKeyColumns": [
+              "liquibase.structure.core.Column#44b9181"
+            ]
+            ,
+            "foreignKeyTable": "liquibase.structure.core.Table#44b9178",
+            "name": "FK_TODOLISTS_ON_UTILISATEUR_LOGIN",
+            "primaryKeyColumns": [
+              "liquibase.structure.core.Column#44b9183"
+            ]
+            ,
+            "primaryKeyTable": "liquibase.structure.core.Table#44b9184",
+            "snapshotId": "44b9182"
+          }
+        }
+      ]
+      ,
+      "liquibase.structure.core.Index": [
+        {
+          "index": {
+            "columns": [
+              {
+                "column": {
+                  "name": "login"
+                }
+              }
+            ]
+            ,
+            "name": "IX_pk_tasks",
+            "snapshotId": "44b9172",
+            "table": "liquibase.structure.core.Table#44b9171",
+            "unique": true
+          }
+        },
+        {
+          "index": {
+            "columns": [
+              {
+                "column": {
+                  "name": "login"
+                }
+              }
+            ]
+            ,
+            "name": "IX_pk_todolists",
+            "snapshotId": "44b9179",
+            "table": "liquibase.structure.core.Table#44b9178",
+            "unique": true
+          }
+        },
+        {
+          "index": {
+            "columns": [
+              {
+                "column": {
+                  "name": "login"
+                }
+              }
+            ]
+            ,
+            "name": "IX_pk_users",
+            "snapshotId": "44b9185",
+            "table": "liquibase.structure.core.Table#44b9184",
+            "unique": true
+          }
+        }
+      ]
+      ,
+      "liquibase.structure.core.PrimaryKey": [
+        {
+          "primaryKey": {
+            "backingIndex": "liquibase.structure.core.Index#44b9172",
+            "columns": [
+              "liquibase.structure.core.Column#44b9173"
+            ]
+            ,
+            "name": "pk_tasks",
+            "snapshotId": "44b9189",
+            "table": "liquibase.structure.core.Table#44b9171"
+          }
+        },
+        {
+          "primaryKey": {
+            "backingIndex": "liquibase.structure.core.Index#44b9179",
+            "columns": [
+              "liquibase.structure.core.Column#44b9177"
+            ]
+            ,
+            "name": "pk_todolists",
+            "snapshotId": "44b9188",
+            "table": "liquibase.structure.core.Table#44b9178"
+          }
+        },
+        {
+          "primaryKey": {
+            "backingIndex": "liquibase.structure.core.Index#44b9185",
+            "columns": [
+              "liquibase.structure.core.Column#44b9183"
+            ]
+            ,
+            "name": "pk_users",
+            "snapshotId": "44b9187",
+            "table": "liquibase.structure.core.Table#44b9184"
+          }
+        }
+      ]
+      ,
+      "liquibase.structure.core.Schema": [
+        {
+          "schema": {
+            "catalog": "liquibase.structure.core.Catalog#44b9169",
+            "default": true,
+            "snapshotId": "44b9170"
+          }
+        }
+      ]
+      ,
+      "liquibase.structure.core.Table": [
+        {
+          "table": {
+            "columns": [
+              "liquibase.structure.core.Column#44b9173",
+              "liquibase.structure.core.Column#44b9174",
+              "liquibase.structure.core.Column#44b9175"
+            ]
+            ,
+            "indexes": [
+              "liquibase.structure.core.Index#44b9172"
+            ]
+            ,
+            "name": "tasks",
+            "outgoingForeignKeys": [
+              "liquibase.structure.core.ForeignKey#44b9176"
+            ]
+            ,
+            "primaryKey": "liquibase.structure.core.PrimaryKey#44b9189",
+            "schema": "liquibase.structure.core.Schema#44b9170",
+            "snapshotId": "44b9171"
+          }
+        },
+        {
+          "table": {
+            "columns": [
+              "liquibase.structure.core.Column#44b9177",
+              "liquibase.structure.core.Column#44b9180",
+              "liquibase.structure.core.Column#44b9181"
+            ]
+            ,
+            "indexes": [
+              "liquibase.structure.core.Index#44b9179"
+            ]
+            ,
+            "name": "todolists",
+            "outgoingForeignKeys": [
+              "liquibase.structure.core.ForeignKey#44b9182"
+            ]
+            ,
+            "primaryKey": "liquibase.structure.core.PrimaryKey#44b9188",
+            "schema": "liquibase.structure.core.Schema#44b9170",
+            "snapshotId": "44b9178"
+          }
+        },
+        {
+          "table": {
+            "columns": [
+              "liquibase.structure.core.Column#44b9183",
+              "liquibase.structure.core.Column#44b9186"
+            ]
+            ,
+            "indexes": [
+              "liquibase.structure.core.Index#44b9185"
+            ]
+            ,
+            "name": "users",
+            "primaryKey": "liquibase.structure.core.PrimaryKey#44b9187",
+            "schema": "liquibase.structure.core.Schema#44b9170",
+            "snapshotId": "44b9184"
+          }
+        }
+      ]
+      
+    },
+    "snapshotControl": {
+      "snapshotControl": {
+        "includedType": [
+          "liquibase.structure.core.Catalog",
+          "liquibase.structure.core.Column",
+          "liquibase.structure.core.ForeignKey",
+          "liquibase.structure.core.Index",
+          "liquibase.structure.core.PrimaryKey",
+          "liquibase.structure.core.Schema",
+          "liquibase.structure.core.Sequence",
+          "liquibase.structure.core.Table",
+          "liquibase.structure.core.UniqueConstraint",
+          "liquibase.structure.core.View"
+        ]
+        
+      }
+    }
+  }
+}
