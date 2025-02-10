@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
 Created-By: IntelliJ IDEA
-Built-By: mohamed
-Build-Jdk: 21.0.5
+Built-By: mohamedsenghor
+Build-Jdk: Homebrew OpenJDK 21.0.6
 

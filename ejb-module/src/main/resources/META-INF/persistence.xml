@@ -5,7 +5,7 @@
              version="3.0">
 
     <persistence-unit name="defal_pu">
-        <jta-data-source>java:/DefalDS</jta-data-source>
+            <jta-data-source>java:/DefalDS</jta-data-source>
         <class>com.example.ejbmodule.entity.UtilisateurEntity</class>
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>

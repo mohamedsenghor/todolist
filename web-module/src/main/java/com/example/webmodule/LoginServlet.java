@@ -1,12 +1,11 @@
 package com.example.webmodule;
 
-import com.example.ejbmodule.bean.UtilisateurRemote;
+import com.example.ejbmodule.bean.interfaces.UtilisateurRemote;
 import com.example.ejbmodule.pojo.Utilisateur;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import jakarta.ejb.EJB;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,22 +14,33 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(name = "loginServlet", value = "/login")
-public class Login extends HttpServlet {
+public class LoginServlet extends HttpServlet {
     @EJB
     private UtilisateurRemote utilisateurBean;
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
+        session.setMaxInactiveInterval(1200);
+
+        System.out.println("LoginServlet Servlet Called!");
+
+        System.out.println("LoginServlet: " + request.getParameter("login"));
+        System.out.println("Password: " + request.getParameter("password"));
 
         if (session.getAttribute("login") != null && session.getAttribute("login").equals(request.getParameter("login"))) {
             response.sendRedirect("/index.jsp");
             return;
         }
-
+        if (utilisateurBean == null) {
+            throw new ServletException("Utilisateur EJB not injected properly");
+        }
         Utilisateur e = new Utilisateur(request.getParameter("login"), request.getParameter("password"));
+        if (utilisateurBean == null) {
+            System.out.println("utilisateurBean EJB not injected properly!");
+            throw new ServletException("Utilisateur EJB not injected properly");
+        }
         boolean resp = utilisateurBean.authenticate(e.getLogin(), e.getPassword());
         JsonObject JsonResponse = new JsonObject();
         Gson gson = new Gson();

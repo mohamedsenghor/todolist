@@ -13,8 +13,17 @@ public class TodoListEntity {
     @Column(name = "todolist_id")
     private Long todolistId;
 
+    @Column(name = "title", nullable = false, length = 100)
+    private String title;
+
+    public TodoListEntity(String title) {
+        this.title = title;
+    }
+
+    public TodoListEntity() {}
+
     @ManyToOne
-    @JoinColumn(name = "user_id") // Foreign key in todolists table
+    @JoinColumn(name = "login") // Foreign key in todolists table
     private UtilisateurEntity user;
 
     @OneToMany(mappedBy = "todoList", cascade = CascadeType.ALL, orphanRemoval = true) // Todolist owns tasks
@@ -26,6 +35,14 @@ public class TodoListEntity {
 
     public void setTodolistId(Long todolistId) {
         this.todolistId = todolistId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public UtilisateurEntity getUser() {

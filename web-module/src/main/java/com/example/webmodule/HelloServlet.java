@@ -2,13 +2,10 @@ package com.example.webmodule;
 
 import java.io.*;
 
-import com.example.ejbmodule.bean.UtilisateurRemote;
-import com.example.ejbmodule.pojo.Utilisateur;
+import com.example.ejbmodule.bean.interfaces.UtilisateurRemote;
 import jakarta.ejb.EJB;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-
-import javax.swing.plaf.synth.SynthTextAreaUI;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {

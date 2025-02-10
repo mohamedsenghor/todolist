@@ -12,17 +12,17 @@
 <div class="wrapper">
     <div class="title"><span>Login Form</span></div>
 
-    <form action="login" method="post" id="login-form">
+    <form action="login" method="post" id="loginForm">
         <div>
             <p id="login-error-msg" style="color: red;"></p>
         </div>
         <div class="row">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="username" id="login-input" name="login" required/>
+            <input type="text" placeholder="username" id="login" name="login" required/>
         </div>
         <div class="row">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" id="password-input" name="password" required/>
+            <input type="password" placeholder="Password" id="password" name="password" required/>
         </div>
         <div class="row button">
             <input type="submit" value="Login"/>
@@ -33,14 +33,44 @@
 </div>
 
 <script type="text/javascript">
-    const status = document.getElementById('status').value || '';
-    let errorMessage = document.getElementById('errorMessage').value;
-    if (errorMessage)
-        errorMessage = " ";
-    console.log(errorMessage);
-    console.log(status);
-    const errorNode = document.getElementById('login-error-msg');
-    errorNode.textContent = errorMessage;
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        var login = document.getElementById("login").value;
+        var password = document.getElementById("password").value;
+
+        var formData = new FormData();
+        formData.append("login", login);
+        formData.append("password", password);
+        var params = new URLSearchParams();
+        params.append("login", login);
+        params.append("password", password);
+        console.log("LoginServlet:", login);
+        console.log("Password:", password);
+        fetch("${pageContext.request.contextPath}/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: params.toString()
+        })
+            .then(response => response.json())  // Parse the JSON response
+            .then(data => {
+                // Handle the response in the client-side
+                if (data.status) {
+                    // Success - redirect to home page or dashboard
+                    alert(data.message);
+                    window.location.href = "${pageContext.request.contextPath}/index.jsp";  // Redirect to home page
+                } else {
+                    // Failure - Show error messages
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    });
 </script>
 </body>
 </html>

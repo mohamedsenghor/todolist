@@ -1,5 +1,7 @@
 package com.example.ejbmodule.bean;
 
+import com.example.ejbmodule.bean.interfaces.UtilisateurLocal;
+import com.example.ejbmodule.bean.interfaces.UtilisateurRemote;
 import com.example.ejbmodule.entity.UtilisateurEntity;
 import com.example.ejbmodule.pojo.Utilisateur;
 import jakarta.ejb.Stateless;

@@ -15,6 +15,15 @@ public class TaskEntity {
     @Column(name = "post")
     private String post;
 
+    public TaskEntity() {}
+    public TaskEntity(String post) {
+        this.post = post;
+    }
+    public TaskEntity(String post, boolean isDone) {
+        this.post = post;
+        this.isDone = isDone;
+    }
+
     @Column(name = "is_done")
     private boolean isDone;
 
